@@ -36,7 +36,9 @@ _here are the 3 branches I've created:_
 
 ## Resulting History
 
-![Github network grap](./Supporting-documents/network-graph.png "Network Graph")
+<img src="./Supporting-documents/network-graph.png" alt="Network Graph" width="500" border="1px" />  
+
+<img src="./Supporting-documents/history-with-comments.png" alt="History" width="500" border="1px" />  
 
 ## Observations
 
@@ -45,7 +47,7 @@ _here are the 3 branches I've created:_
 Merge commits strategy adds all commits from the branch to the base branch with a merge commit.  
 
 _master merge commit:_  
-<img src="./Supporting-documents/merge-strategy-graph.png" alt="Merge commit strategy" width="400" border="1px" />  
+<img src="./Supporting-documents/merge-strategy-graph.png" alt="Merge commit strategy" width="500" border="1px" />  
 
 <table>
     <tr font="bold">
@@ -88,7 +90,7 @@ Squash merging strategy combines all commits from the branch into a single commi
 
 
 _master squashed commit:_  
-<img src="./Supporting-documents/squah-merging-strategy-graph.png" alt="Squash Merging strategy" width="400" border="1px" />  
+<img src="./Supporting-documents/squah-merging-strategy-graph.png" alt="Squash Merging strategy" width="500" border="1px" />  
 
 <table>
     <tr font="bold">
@@ -117,10 +119,10 @@ _master squashed commit:_
 Rebase merging _recommit_ all commits from the branch onto the base branch individually.
 
 _branch commit:_  
-<img src="./Supporting-documents/rebase-strategy-branch-commit.png" alt="Rebase Merging strategy (branch)" width="400" border="1px" />  
+<img src="./Supporting-documents/rebase-strategy-branch-commit.png" alt="Rebase Merging strategy (branch)" width="500" border="1px" />  
 
 _master commit:_  
-<img src="./Supporting-documents/rebase-strategy-master-commit.png" alt="Rebase Merging strategy (master)" width="400" border="1px"/>  
+<img src="./Supporting-documents/rebase-strategy-master-commit.png" alt="Rebase Merging strategy (master)" width="500" border="1px"/>  
 
 
 <table>
@@ -158,7 +160,14 @@ _master commit:_
 _An issue is open on GitHub since we are losing commits signatures & verifications._  
 _If your master branch rules prevent you from creating a **not-signed** commit, this strategy cannot be used_  
 
-![Rebase merging strategy - signing error](./Supporting-documents/rebase-strategy-cannot-sign-commits.png "Rebase Merging strategy (sign commits error)")
+<img src="./Supporting-documents/rebase-strategy-cannot-sign-commits.png" alt="Rebase Merging strategy (sign commits error)" width="500" border="1px"/>  
+
+### Summary
+
+This table shows a summary of all the pros and cons of each strategies
+<img src="./Supporting-documents/merge-strategy-comparison.png" alt="Merge Strategy Comparison" width="500" border="1px"/>  
+
+_source: https://medium.com/@elliotchance/comparison-of-merging-strategies-in-github-2f948c3b8fdc_
 
 ## Recommendations
 
@@ -167,7 +176,8 @@ _If your master branch rules prevent you from creating a **not-signed** commit, 
 - As much as you can, try to keep a clear commit history
   - Fixup/squash useless commits (typo, fix linting issues or import sorting)
   - Write meaningful messages (title, details and a link to the originating issue)
-- Rebase your branch on master _before_ creating and merging a PR
+- Make sure your branch is up to date with the master _before_ creating and merging a PR (No mather the merge strategy used)
+  - The simplest way to do so is to rebase your branch on master _before_ creating PR and _before_ merging the PR. (Obviously, if the merge strategy used is to Rebase and merge, this procedure is useless.)
   - This ensures every merge commit is working and not breaking the build (no failing tests, no conflicting migrations)
 
 ## Final words
